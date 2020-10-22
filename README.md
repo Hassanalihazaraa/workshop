@@ -19,3 +19,4 @@ The JDK includes the Java Runtime Environment (JRE), an interpreter (java), a co
 
 ![JDK](jdk.png)
 
+Typically, if you are only interested in running Java programs on your machine or browser, you only need to install JRE. However, if you would like to develop an application and do Java programming, you will need JDK.
