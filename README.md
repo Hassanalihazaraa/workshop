@@ -1,4 +1,4 @@
-# First Step: Java installations
+# Title: Coronavirus tracker app with spring-boot
 - Duration: `4 hours`
 - Deployment strategy : Own PC
 - Team challenge : `solo`
