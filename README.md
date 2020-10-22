@@ -21,5 +21,5 @@ The JDK includes the Java Runtime Environment (JRE), an interpreter (java), a co
 
 Typically, if you are only interested in running Java programs on your machine or browser, you only need to install JRE. However, if you would like to develop an application and do Java programming, you will need JDK.
 
-**But since April 16, 2019, you have to create an account in order to be able to download JDK**
-#### [Installation link here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+**Since April 16, 2019, you have to create an account in order to be able to download JDK**
+#### [Installation link here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html?target=_blank)
