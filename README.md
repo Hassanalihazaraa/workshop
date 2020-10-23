@@ -49,4 +49,4 @@ If Intellij is not for you then I have got you covered you can install [Eclipse]
 
 
 #### Step 4: Navigate to [start.spring.io](https://start.spring.io) on your browser
-![](springinitializr.png)
+![](springInitializr.png)
