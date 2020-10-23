@@ -48,5 +48,18 @@ or
 If Intellij is not for you then I have got you covered you can install [Eclipse](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-linux64.tar.gz) another great editor for java.
 
 
-#### Step 4: Navigate to [start.spring.io](https://start.spring.io) on your browser
+#### Step 4: Spring Initializr
+Ok let's go through every option on this website.
+If you’re wondering how to use start.spring.io or what features are available, this section is for you! You’ll find the various ways you can interact with the service and get a better insight at what you can do with it.
+
+The service allows you to generate Spring Boot projects quickly. You can customize the project to generate: the build system and packaging, the language, the packaging, the coordinates, the platform version and, finally, the dependencies to add to the project. Most dependencies available on start.spring.io are Spring Boot starters which is the recommended way to add dependencies to a Spring Boot application.
+
+**Getting Started**
+
+Let’s create a project and discover the various options that you can use to tune it. Go to [start.spring.io](https://start.spring.io), change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want and put the focus in the Dependencies field below. Click on the "add dependency" in the top right corner and type and select the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
+
+Your browser should now be in this state:
+
 ![](springInitializr.png)
+
+Now click on the Generate button and it will download the initial project files.
