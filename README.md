@@ -26,14 +26,15 @@ Typically, if you are only interested in running Java programs on your machine o
 #### [Installation link here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 
 #### Code editor for java development
-In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love Intellij because of it's full of features, simple, neat and clean from the same Brand.
-
-[Installation link here](https://www.jetbrains.com/idea/download/#section=linux)
+In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love [Intellij](https://www.jetbrains.com/idea/download/#section=linux) because of it's full of features, simple, neat and clean from the same Brand as phpstorm.
 
 On Ubuntu?
 IntelliJ IDEA is also available as a snap package. If you’re on Ubuntu 16.04 or later, you can install IntelliJ IDEA from the command line.
 
 ` sudo snap install intellij-idea-community --classic `
+
 or
 
 ` sudo snap install intellij-idea-ultimate --classic `
+
+if Intellij is not for you then I have got you covered you can install [Eclipse](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-linux64.tar.gz) another great editor for java.
