@@ -103,14 +103,31 @@ After downloading the initial project files, Extract it and open it in Intellij.
 Today we are going to build an application that fetches data from a source, maybe your thinking about API but no today I want it to do it a little different. We are going to fetch all our data from a github account from [Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19). It is updated daily.
 
 #### Step 6: Let's start with coding enough with theory and explanation
-Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this [URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv).
+Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this [URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv) which is in csv format.
 
-Inside your CoronaVirusService class. Create two properties:
+Inside your CoronaVirusService class. Create a property:
 
 ```
     private static String CORONA_VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
-
-    private List<LocationStats> allStats = new ArrayList<>();
 ```
 
-For the ArrayList create also the getter which returns the allStats.
+Next, create a method that is going to fetch all data from the property that we have created.
+```
+   public void fetchUrlData() {
+   	
+       } 
+```
+
+Now inside this method create new HttClient variables 
+
+```
+   public void fetchUrlData() {
+        // Here we are creating a new http client in order to be able to send and recieve http requests.
+   		HttpClient client = HttpClient.newHttpClient();
+        // 
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(CORONA_VIRUS_DATA_URL))
+                .build();
+        HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
+       } 
+```
