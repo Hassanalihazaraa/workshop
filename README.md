@@ -168,7 +168,7 @@ You can read more [here](https://commons.apache.org/proper/commons-csv/user-guid
 
 if it is still red then you have to reload the maven project in order to download the dependency. you can do that by clicking on the maven left sidebar and click on reload all maven projects icon.
 
-#####2: In order to save all data in our application state we need a model
+##### 2: In order to save all data in our application state we need a model
 Create a **models** package inside com.coronavirus.tracker and create a new class inside model called **LocationStats**.
 Inside LocationStats create 4 properties with getters and setters:
 ```
@@ -191,7 +191,7 @@ In order to print our locations stats and numbers we need to call a method toStr
     }
 ```
 
-#####3: Go back to CoronavirusService class
+##### 3: Go back to CoronavirusService class
 Here we have to save those data inside our model that we have received from the source
 
 create a new ArrayList of LocationStats with getter.
@@ -256,7 +256,7 @@ And then we loop through every record and saving all records in our model.
 and add also **@EnableScheduling** on the entry CoronavirusTrackerApplication class. Well this enables scheduling on our application to run every day.
 Every star inside @Scheduled means second,minute,hour,day,month,year.
 
-#####4: In order to render all data we need a controller
+##### 4: In order to render all data we need a controller
 Create a new package inside com.coronavirus.tracker called **controllers** and inside that controllers create a new class **HomeController** or whatever you like.
 In order to let spring boot know that we are using this class as a controller we have to add **@Controller** annotation on the HomeController class.
 
@@ -275,7 +275,7 @@ You can test it by writing something inside your html and navigate to **locahost
 
 **Make sure that your html file and whatever you return inside your controller should have the same name**.
 
-#####5: Autowiring service to controller
+##### 5: Autowiring service to controller
 create a property (type CoronaVirusService) inside your controller and add **@Autowired** on top of it like this:
 ```
 @Autowired
