@@ -35,14 +35,10 @@ You can install by pasting this command in your terminal:
 
 
 #### Step 3: Code editor for java development
-In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love **[Intellij](https://www.jetbrains.com/idea/download/#section=linux)** because of it's full of features, simple, neat and clean from the same Brand as phpstorm.
+In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love **[Intellij](https://www.jetbrains.com/idea/download/#section=linux)** because it's full of features, simple, neat and clean from the same Brand as phpstorm.
 
 On Ubuntu?
 IntelliJ IDEA is also available as a snap package. If you’re on Ubuntu 16.04 or later, you can install IntelliJ IDEA from the command line.
-
-` sudo snap install intellij-idea-community --classic `
-
-or
 
 ` sudo snap install intellij-idea-ultimate --classic `
 
