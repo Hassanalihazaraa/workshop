@@ -99,7 +99,7 @@ As you can see that there bunch of files and folders inside this project.
 
 - mvn: this the folder from mvn builder. we are not going to touch this folder.
 
-- src: this the folder where we are going to write all our code. if you open src/main/java/com.coronavirus.tracker, you will see a class CoronavirusTrackerApplication. The class is the entry point into the application so we are not going to write any code here.
+- src: this the folder where we are going to write all our code. if you open src/main/java/com.coronavirus.tracker, you will see a class CoronavirusTrackerApplication. The class is the entry point into the application.
 ![](spring.png)
 
 - src/main/resources: this is the folder where our front-end logic and resources lies.
