@@ -384,4 +384,11 @@ Don't worry I will try to explain this code.
 ```
 As you can see we have passed the same totalReportedCases and totalNewCases attributes that we have created inside our controller class and looped through the records and display them in a table.
 
-if your more curious about Thymeleaf you can find more information [here](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf) 
+if your more curious about Thymeleaf you can find more information [here](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf)
+
+#### 7: Congratulations you are now a spring boot Rockstar developer!
+
+### Nice to have features
+- Display totalRecoveredCases
+
+- Display totalDeathCases
