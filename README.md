@@ -259,3 +259,26 @@ Every star inside @Scheduled means second,minute,hour,day,month,year.
 #####4: In order to render all data we need a controller
 Create a new package inside com.coronavirus.tracker called **controllers** and inside that controllers create a new class **HomeController** or whatever you like.
 In order to let spring boot know that we are using this class as a controller we have to add **@Controller** annotation on the HomeController class.
+
+Ok now create a public string index method which will return a template value.
+```
+@Controller
+public class HomeController {
+    public String index() {
+        return "home";
+    }
+}
+```
+
+Since we are returning a home template we have to create a home.html inside resources/templates. Once you have created your home.html, add **@GetMapping("/")** which basically maps the root to / and returns our home page.
+You can test it by writing something inside your html and navigate to **locahost:8080**. 
+
+**Make sure that your html file and whatever you return inside your controller should have the same name**.
+
+#####5: Autowiring service to controller
+create a property (type CoronaVirusService) inside your controller and add **@Autowired** on top of it like this:
+```
+@Autowired
+CoronaVirusService coronaVirusService;
+```
+Let me explain this: Spring @Autowired annotation is used for automatic dependency injection. Spring framework is built on dependency injection and we inject the class dependencies through spring bean configuration file.
