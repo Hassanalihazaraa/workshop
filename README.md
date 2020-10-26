@@ -23,7 +23,7 @@ The JDK includes the Java Runtime Environment (JRE), an interpreter (java), a co
 
 Typically, if you are only interested in running Java programs on your machine or browser, you only need to install JRE. However, if you would like to develop an application and do Java programming, you will need JDK.
 
-**Since April 16, 2019, you have to create an account in order to be able to download [JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)**
+**Since April 16, 2019, you have to create an account in order to be able to download **[JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)**
 
 
 #### Step 2: Install Maven
@@ -35,7 +35,7 @@ You can install by pasting this command in your terminal:
 
 
 #### Step 3: Code editor for java development
-In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love [Intellij](https://www.jetbrains.com/idea/download/#section=linux) because of it's full of features, simple, neat and clean from the same Brand as phpstorm.
+In order to be able to code java, you need an editor. As I assume that you are already used to phpstorm to code PHP, Then I think you will love **[Intellij](https://www.jetbrains.com/idea/download/#section=linux)** because of it's full of features, simple, neat and clean from the same Brand as phpstorm.
 
 On Ubuntu?
 IntelliJ IDEA is also available as a snap package. If you’re on Ubuntu 16.04 or later, you can install IntelliJ IDEA from the command line.
@@ -46,7 +46,7 @@ or
 
 ` sudo snap install intellij-idea-ultimate --classic `
 
-If Intellij is not for you then I have got you covered you can install [Eclipse](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-linux64.tar.gz) another great editor for java.
+I would recommend Intellij but if Intellij is not for you then I have got you covered you can install **[Eclipse](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-linux64.tar.gz)** another great editor for java.
 
 
 #### Step 4: Spring Initializr
@@ -56,7 +56,7 @@ The service allows you to generate Spring Boot projects quickly. You can customi
 
 **Getting Started**
 
-Let’s create a project and discover the various options that you can use to tune it. Go to [start.spring.io](https://start.spring.io), change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want and put the focus in the Dependencies field below. Click on the "add dependency" in the top right corner and type and add the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
+Let’s create a project and discover the various options that you can use to tune it. Go to **[start.spring.io](https://start.spring.io)**, change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want and put the focus in the Dependencies field below. Click on the "add dependency" in the top right corner and type and add the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
 
 **Your browser should now be in this state:**
 
@@ -99,12 +99,28 @@ After downloading the initial project files, Extract it and open it in Intellij.
 
 ![](initial-files.png)
 
+As you can see that there bunch of files and folders inside this project.
+
+- mvn: this the folder from mvn builder. we are not going to touch this folder.
+
+- src: this the folder where we are going to write all our code. if you open src/main/java/com.coronavirus.tracker, you will see a class CoronavirusTrackerApplication. The class is the entry point into the application so we are not going to write any code here.
+![](spring.png)
+
+- src/main/resources: this is the folder where our front-end logic and resources lies.
+
+- test: well here you can write all your unit test here.
+
+- target: Once you click on the run button or shift+F10 to run your application you will see that target folder is created. This folder contains all the compiled bytecodes of your application.
+
+- pom.xml: A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects. Examples for this is the build directory, which is target; the source directory, which is src/main/java; the test source directory, which is src/test/java; and so on. When executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the needed configuration information, then executes the goal.
+           Some of the configuration that can be specified in the POM are the project dependencies, the plugins or goals that can be executed, the build profiles, and so on. Other information such as the project version, description, developers, mailing lists and such can also be specified.
+
 **Make sure that your Project bytecode version is 11 in your editor settings and project's version is 11 and also in your pom.xml file**
 
-Today we are going to build an application that fetches data from a source, maybe your thinking about API but no today I want it to do it a little different. We are going to fetch all our data from a github account from [Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19). It is updated daily.
+Today we are going to build an application that fetches data from a source, maybe your thinking about API but no today I want it to do it a little different. We are going to fetch all our data from a github account from **[Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)**. It is updated daily.
 
 #### Step 6: Let's start with coding enough with theory and explanation
-Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this [URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv) which is in csv format.
+Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this **[URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)** which is in csv format.
 
 Inside your CoronaVirusService class. Create a property:
 
