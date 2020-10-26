@@ -245,7 +245,7 @@ Ok let me explain this. First we are fetching the csv data from the url and in o
 And then we loop through every record and save all the records in our model.
  
  Our application only shows data once it is accessed, because the data we receive is daily updated and we have to update it accordingly.
- That's where spring boot annotation comes in handy. Add this annotation on fetchUrlData and below @PostConstruct
+ That's where spring boot annotation comes in handy. Add this annotation on fetchUrlData method and below @PostConstruct
 ```
 @Scheduled(cron = "* * 1 * * *")
 ```
@@ -267,7 +267,7 @@ public class HomeController {
 ```
 
 Since we are returning a home template we have to create a home.html inside resources/templates. Once you have created your home.html, add **@GetMapping("/")** which handles GET requests.
-You can test it by writing something inside your html and navigate to **locahost:8080**. 
+You can test it out by writing something inside your html and navigate to **locahost:8080**. 
 
 **Make sure that your html file and whatever you return inside your controller should have the same name**.
 
@@ -299,7 +299,7 @@ int totalReportedCases = allStats.stream().mapToInt(LocationStats::getLatestTota
 int totalNewCases = allStats.stream().mapToInt(LocationStats::getDiffFromPrevDay).sum();
 ```
 
-Here we are storing all stats inside an ArrayList and adding all of the total cases inside totalReportedCases. For totalNewCases we are subtracting the total previous day total cases from latest cases and adding them all together.
+Here we are storing all stats inside an ArrayList and adding all of the total cases inside totalReportedCases. For totalNewCases we are subtracting the total previous day cases from latest cases and adding them all together.
 
 Now in order to be able to access data from controller inside our html page, we need to create model.addAttributes() and pass this variables.
 ```
