@@ -248,10 +248,14 @@ public class CoronaVirusService {
 Ok let me explain this. First we are fetching the csv data from the url and in order to format csv data with apache commons CSV we have to pass the httpResponse as a StringReader.
 And then we loop through every record and saving all records in our model.
  
- Our application only shows data once it is accessed, because the data we receive is daily updated we have to also update our record daily.
+ Our application only shows data once it is accessed, because the data we receive is daily updated and we have to update it accordingly.
  That's where spring boot annotation comes in handy. Add this annotation on fetchUrlData and below @PostConstruct
 ```
 @Scheduled(cron = "* * 1 * * *")
 ```
 and add also **@EnableScheduling** on the entry CoronavirusTrackerApplication class. Well this enables scheduling on our application to run every day.
 Every star inside @Scheduled means second,minute,hour,day,month,year.
+
+#####4: In order to render all data we need a controller
+Create a new package inside com.coronavirus.tracker called **controllers** and inside that controllers create a new class **HomeController** or whatever you like.
+In order to let spring boot know that we are using this class as a controller we have to add **@Controller** annotation on the HomeController class.
