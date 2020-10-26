@@ -327,3 +327,61 @@ public class HomeController {
 ```
 
 ##### 6: Open your index.html
+Now its front-end time!
+Copy and paste this code:
+
+Don't worry I will try to explain this code.
+```
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+          crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1>Total cases reported</h1>
+
+    <p>This application lists the current number of cases reported across the globe</p>
+
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+        <p class="lead">Total cases reported as of today</p>
+        <hr class="my-4">
+        <p>
+            <span>Total new cases reported since yesterday</span>
+            <span th:text="${totalNewCases}"></span>
+        </p>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Country</th>
+            <th>Province</th>
+            <th>Total cases reported</th>
+            <th>Confirmed cases since last day</th>
+        </tr>
+        </thead>
+        <tr th:each="locationStat : ${locationStats}">
+            <td class="table-primary" th:text="${locationStat.country}"></td>
+            <td class="table-primary" th:text="${locationStat.state}"></td>
+            <td class="table-secondary" th:text="${locationStat.latestTotalCases}">0</td>
+            <td class="table-danger" th:text="${locationStat.diffFromPrevDay}">0</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
+```
+As you can see we have passed the same totalReportedCases and totalNewCases attributes that we have created inside our controller class and looped through the records and display them in a table.
+
+if your more curious about Thymeleaf you can find more information [here](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf) 
