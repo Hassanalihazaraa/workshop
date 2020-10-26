@@ -90,4 +90,14 @@ Let’s create a project and discover the various options that you can use to tu
 
 **Now click on the Generate button and it will download the initial project files.**
 
+#### Step 5: Getting started with exercise
+
+After downloading the initial project files, Extract it and open it in Intellij. After opening it in Intellij, you will see that Maven is creating and downloading all the initial files and dependencies for you.
+
+**It should look like this:**
+
+![](initial-files.png)
+
+
+
 
