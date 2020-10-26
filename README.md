@@ -270,7 +270,7 @@ public class HomeController {
 }
 ```
 
-Since we are returning a home template we have to create a home.html inside resources/templates. Once you have created your home.html, add **@GetMapping("/")** which basically maps the root to / and returns our home page.
+Since we are returning a home template we have to create a home.html inside resources/templates. Once you have created your home.html, add **@GetMapping("/")** which handles GET requests.
 You can test it by writing something inside your html and navigate to **locahost:8080**. 
 
 **Make sure that your html file and whatever you return inside your controller should have the same name**.
@@ -282,3 +282,48 @@ create a property (type CoronaVirusService) inside your controller and add **@Au
 CoronaVirusService coronaVirusService;
 ```
 Let me explain this: Spring @Autowired annotation is used for automatic dependency injection. Spring framework is built on dependency injection and we inject the class dependencies through spring bean configuration file.
+
+Now pass **Model model** inside your index method
+```
+@Controller
+public class HomeController {
+    public String index(Model model) {
+        return "home";
+    }
+}
+```
+What is Model interface ? 
+
+Spring mvc Model interface is used for adding attributes used to replace placeholders in a view.
+
+Now create three variables where we will store our allstats, totalReportedCases, totalNewCases
+```
+List<LocationStats> allStats = coronaVirusService.getAllStats();
+int totalReportedCases = allStats.stream().mapToInt(LocationStats::getLatestTotalCases).sum();
+int totalNewCases = allStats.stream().mapToInt(LocationStats::getDiffFromPrevDay).sum();
+```
+
+Here we are storing all stats inside an ArrayList and adding all of the total cases inside totalReportedCases. For totalNewCases we are subtracting the total previous day total cases from latest cases and adding them all together.
+
+Now in order to be able to access data from controller inside our html page, we need to create model.addAttributes() and pass this variables.
+```
+@Controller
+public class HomeController {
+
+    @Autowired
+    CoronaVirusService coronaVirusService;
+
+    @GetMapping("/")
+    public String index(Model model) {
+        List<LocationStats> allStats = coronaVirusService.getAllStats();
+        int totalReportedCases = allStats.stream().mapToInt(LocationStats::getLatestTotalCases).sum();
+        int totalNewCases = allStats.stream().mapToInt(LocationStats::getDiffFromPrevDay).sum();
+        model.addAttribute("locationStats", allStats);
+        model.addAttribute("totalReportedCases", totalReportedCases);
+        model.addAttribute("totalNewCases", totalNewCases);
+        return "home";
+    }
+}
+```
+
+##### 6: Open your index.html
