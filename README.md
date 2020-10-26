@@ -148,7 +148,7 @@ Now inside this method create new HttpClient variables in order to be able to se
        } 
 ```
 
-After pasting this code you will see that there are a lot of red errors in your but don't worry you have only hover over those red errors and import it.
+After pasting this code you will see that there are a lot of red errors in your but don't worry you have to only hover over those red errors and import it.
 Now click on the run button on top right. If you want to use shortcut press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
 You will see that nothing is printing on the console. You are thinking why is that, I have written everything correct but nothing prints. Well, welcome to the world of magic :P I mean spring Boot.
 Let me explain here. In order to spring boot know that your CoronaVirusService is a service class, 
@@ -163,6 +163,9 @@ Now, if you run your program again by clicking the run button or pressing shift+
     <version>1.8</version>
 </dependency>
 ```
+
+You can read more [here](https://commons.apache.org/proper/commons-csv/user-guide.html).
+
 if it is still red then you have to reload the maven project in order to download the dependency. you can do that by clicking on the maven left sidebar and click on reload all maven projects icon.
 
 #####2: In order to save all data in our application state we need a model
@@ -187,3 +190,68 @@ In order to print our locations stats and numbers we need to call a method toStr
                 '}';
     }
 ```
+
+#####3: Go back to CoronavirusService class
+Here we have to save those data inside our model that we have received from the source
+
+create a new ArrayList of LocationStats with getter.
+
+```
+    private List<LocationStats> allStats = new ArrayList<>();
+
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
+```
+
+As you have seen that there are a lot of records inside csv file. We have to loop through every records and print out the country, province, lastest cases and previous day cases.
+
+
+Your code should look like this:
+```
+@Service
+public class CoronaVirusService {
+    private static String CORONA_VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
+
+    private List<LocationStats> allStats = new ArrayList<>();
+
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
+
+    @PostConstruct
+    public void fetchUrlData() throws IOException, InterruptedException {
+        List<LocationStats> newStats = new ArrayList<>();
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(CORONA_VIRUS_DATA_URL))
+                .build();
+        HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
+        StringReader csvBodyReader = new StringReader(httpResponse.body());
+        Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
+        for (CSVRecord record : records) {
+            LocationStats locationStat = new LocationStats();
+            locationStat.setState(record.get("Province/State"));
+            locationStat.setCountry(record.get("Country/Region"));
+            int latestCases = Integer.parseInt(record.get(record.size() - 1));
+            int prevDayCases = Integer.parseInt(record.get(record.size() - 2));
+            locationStat.setLatestTotalCases(latestCases);
+            locationStat.setDiffFromPrevDay(latestCases - prevDayCases);
+            newStats.add(locationStat);
+        }
+        this.allStats = newStats;
+    }
+}
+
+```
+
+Ok let me explain this. First we are fetching the csv data from the url and in order to format csv data with apache commons CSV we have to pass the httpResponse as a StringReader.
+And then we loop through every record and saving all records in our model.
+ 
+ Our application only shows data once it is accessed, because the data we receive is daily updated we have to also update our record daily.
+ That's where spring boot annotation comes in handy. Add this annotation on fetchUrlData and below @PostConstruct
+```
+@Scheduled(cron = "* * 1 * * *")
+```
+and add also **@EnableScheduling** on the entry CoronavirusTrackerApplication class. Well this enables scheduling on our application to run every day.
+Every star inside @Scheduled means second,minute,hour,day,month,year.
