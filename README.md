@@ -144,7 +144,7 @@ Now inside this method create new HttpClient variables in order to be able to se
        } 
 ```
 
-After pasting this code you will see that there are a lot of red errors in your but don't worry you have to only hover over those red errors and import it.
+After pasting this code you will see that there are a lot of red errors in your code but don't worry you have to only hover over those red errors and import it.
 Now click on the run button on top right. If you want to use shortcut press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
 You will see that nothing is printing on the console. You are thinking why is that, I have written everything correct but nothing prints. Well, welcome to the world of magic :P I mean spring Boot.
 Let me explain here. In order to spring boot know that your CoronaVirusService is a service class, 
@@ -242,7 +242,7 @@ public class CoronaVirusService {
 ```
 
 Ok let me explain this. First we are fetching the csv data from the url and in order to format csv data with apache commons CSV we have to pass the httpResponse as a StringReader.
-And then we loop through every record and saving all records in our model.
+And then we loop through every record and save all the records in our model.
  
  Our application only shows data once it is accessed, because the data we receive is daily updated and we have to update it accordingly.
  That's where spring boot annotation comes in handy. Add this annotation on fetchUrlData and below @PostConstruct
