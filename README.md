@@ -135,5 +135,8 @@ Now inside this method create new HttpClient variables in order to be able to se
 After pasting this code you will see that there are a lot of red errors in your but don't worry you have only hover over those red errors and import it.
 Now click on the run button on top right. If you want to use shortcut press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
 You will see that nothing is printing on the console. You are thinking why is that, I have written everything correct but nothing prints. Well, welcome to the world of magic :P I mean spring Boot.
-Let me explain here. In order to spring boot know that your CoronaVirusService class is a service class, 
-you have to write this annotation **@Service** above the CoronaVirusService class and **@PostConstruct** above the fetchUrlData method.
+Let me explain here. In order to spring boot know that your CoronaVirusService is a service class, 
+you have to write this annotation **@Service** above the CoronaVirusService class and **@PostConstruct** above the fetchUrlData method. Well postcontruct annotation means that whenever this CoronaVirusService class is instantiated run this method too.
+
+
+Now, if you run your program again by clicking the run button or pressing shift+F10. You will see that now we are able to fetch all the data from the URL.
