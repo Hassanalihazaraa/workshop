@@ -120,7 +120,7 @@ As you can see that there bunch of files and folders inside this project.
 Today we are going to build an application that fetches data from a source, maybe your thinking about API but no today I want it to do it a little different. We are going to fetch all our data from a github account from **[Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)**. It is updated daily.
 
 #### Step 6: Let's start with coding enough with theory and explanation
-Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this **[URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)** which is in csv format.
+##### 1: Create a package called "services" by right clicking on com.coronavirus.tracker. Now inside that package create a new class called "CoronaVirusService". It is the service that is going to fetch all the data and when our application loads it is going to send a call to this **[URL](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)** which is in csv format.
 
 Inside your CoronaVirusService class. Create a static type String property:
 
@@ -155,7 +155,7 @@ Let me explain here. In order to spring boot know that your CoronaVirusService i
 you have to write this annotation **@Service** above the CoronaVirusService class and **@PostConstruct** above the fetchUrlData method. Well PostContruct annotation means that whenever this CoronaVirusService class is instantiated run this method too.
 
 
-Now, if you run your program again by clicking the run button or pressing shift+F10. You will see that now we are able to fetch all the data from the URL. As you can see all the data that received are in csv format, we have to convert it to string. In order to do that we need a **[csv parser](https://commons.apache.org/proper/commons-csv/index.html)** that parses csv files into string. Add this dependency into your POM.xml file inside dependencies section.
+Now, if you run your program again by clicking the run button or pressing shift+F10. You will see that now we are able to fetch all the data from the URL. As you can see all the data that received are in csv format, we have to convert it to string. In order to do that we need a **[csv parser](https://commons.apache.org/proper/commons-csv/index.html)** that parses csv files into string. Add this dependency into your POM.xml file inside dependencies section and save it.
 ```
 <dependency>
     <groupId>org.apache.commons</groupId>
@@ -165,3 +165,25 @@ Now, if you run your program again by clicking the run button or pressing shift+
 ```
 if it is still red then you have to reload the maven project in order to download the dependency. you can do that by clicking on the maven left sidebar and click on reload all maven projects icon.
 
+#####2: In order to save all data in our application state we need a model
+Create a **models** package inside com.coronavirus.tracker and create a new class inside model called **LocationStats**.
+Inside LocationStats create 4 properties with getters and setters:
+```
+    private String state;
+    private String country;
+    private int latestTotalCases;
+    private int diffFromPrevDay;
+```
+
+In order to print our locations stats and numbers we need to call a method toString(). You can do that by alt+insert or just copy past this code below:
+```
+    @Override
+    public String toString() {
+        return "LocationStats{" +
+                "state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", latestTotalCases=" + latestTotalCases +
+                ", diffFromPrevDay=" + diffFromPrevDay +
+                '}';
+    }
+```
