@@ -49,7 +49,6 @@ If Intellij is not for you then I have got you covered you can install [Eclipse]
 
 
 #### Step 4: Spring Initializr
-Ok let's go through every option on this website.
 If you’re wondering how to use start.spring.io or what features are available, this section is for you! You’ll find the various ways you can interact with the service and get a better insight at what you can do with it.
 
 The service allows you to generate Spring Boot projects quickly. You can customize the project to generate: the build system and packaging, the language, the packaging, the coordinates, the platform version and, finally, the dependencies to add to the project. Most dependencies available on start.spring.io are Spring Boot starters which is the recommended way to add dependencies to a Spring Boot application.
@@ -58,8 +57,37 @@ The service allows you to generate Spring Boot projects quickly. You can customi
 
 Let’s create a project and discover the various options that you can use to tune it. Go to [start.spring.io](https://start.spring.io), change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want and put the focus in the Dependencies field below. Click on the "add dependency" in the top right corner and type and add the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
 
-Your browser should now be in this state:
+**Your browser should now be in this state:**
+
 
 ![](springInitializr.png)
 
-Now click on the Generate button and it will download the initial project files.
+**Ok let's go through every option on this website.**
+
+- Project: It defines the kind of project. We can create either Maven Project or Gradle Project. We will create a Maven Project throughout the exercise.
+
+- Language: Spring Initializr provides the choice among three languages Java, Kotlin, and Groovy. Java is by default selected.
+
+- Spring Boot: Which Spring Boot version to use. For this exercise we are going to use 2.3.4.
+
+- Group: Group the root package name to use.
+
+- Artifact: Artifact is the name of the project/application.
+
+- Name: Display name of the project that also determines the name of your Spring Boot application. For instance, if the name of your project is my-app, the generated project will have a MyAppApplication class
+
+- Description: description of the project
+
+- Package Name: root package of the project. If not specified, the value of the Group attribute is used
+
+- Packaging: project packaging (as referred by the concept of the same name in Apache Maven). start.spring.io can generate jar or war projects
+
+- Spring boot: the spring boot version to use
+
+- Java: We can select the JVM version which we want to use. We will use Java 11 version throughout the exercise.
+
+- Add Dependencies: Dependencies are the collection of artifacts that we can add to our project.
+
+**Now click on the Generate button and it will download the initial project files.**
+
+
