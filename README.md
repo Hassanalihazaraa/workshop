@@ -52,7 +52,7 @@ The service allows you to generate Spring Boot projects quickly. You can customi
 
 **Getting Started**
 
-Let’s create a project and discover the various options that you can use to tune it. Go to **[start.spring.io](https://start.spring.io)**, change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want and put the focus in the Dependencies field below. Click on the "add dependency" in the top right corner and type and add the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
+Let’s create a project and discover the various options that you can use to tune it. Go to **[start.spring.io](https://start.spring.io)**, change the Group field from "com.example" to "com.coronavirus", change the Artifact from demo to "tracker", change the Name to "Coronavirus tracker", for the description you can write whatever you want. Click on the "add dependency" in the top right corner and type and add the "Spring web", "ThymeLeaf" and "Spring boot devTools" dependencies.
 
 **Your browser should now be in this state:**
 
