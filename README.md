@@ -9,6 +9,7 @@
 - Be able to work with dependencies in spring boot
 - Learn how to work with mvc patterns
 - Be able to fetch data from csv file and be able to display it
+- Be able to send http request and response
 - Be able to work with Thymeleaf template engine
 ## The Mission
 Today we are going to make a coronavirus tracker application which tracks all the cases that occurs and updates it daily. 
@@ -118,16 +119,21 @@ Next, create a method that is going to fetch all data from the property that we 
        } 
 ```
 
-Now inside this method create new HttClient variables 
+Now inside this method create new HttpClient variables in order to be able to send and receive http requests and printing it out.
 
 ```
    public void fetchUrlData() {
-        // Here we are creating a new http client in order to be able to send and recieve http requests.
-   		HttpClient client = HttpClient.newHttpClient();
-        // 
+        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(CORONA_VIRUS_DATA_URL))
                 .build();
         HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(httpResponse.body());
        } 
 ```
+
+After pasting this code you will see that there are a lot of red errors in your but don't worry you have only hover over those red errors and import it.
+Now click on the run button on top right. If you want to use shortcut press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
+You will see that nothing is printing on the console. You are thinking why is that, I have written everything correct but nothing prints. Well, welcome to the world of magic :P I mean spring Boot.
+Let me explain here. In order to spring boot know that your CoronaVirusService class is a service class, 
+you have to write this annotation **@Service** above the CoronaVirusService class and **@PostConstruct** above the fetchUrlData method.
