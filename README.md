@@ -1,5 +1,5 @@
 # Title: Coronavirus tracker app with spring-boot
-- Duration: `4 hours`
+- Duration: `3 hours`
 - Deployment strategy : Own PC
 - Team challenge : `solo`
 ## Learning objectives
@@ -106,7 +106,7 @@ As you can see that there bunch of files and folders inside this project.
 
 - test: well here you can write all your unit test here.
 
-- target: Once you click on the run button or shift+F10 to run your application you will see that target folder is created. This folder contains all the compiled bytecodes of your application.
+- target: Once you click on the run button/shift+F10 or mvn spring-boot:run in your terminal to run your application you will see that target folder is created. This folder contains all the compiled bytecodes of your application.
 
 - pom.xml: A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects. Examples for this is the build directory, which is target; the source directory, which is src/main/java; the test source directory, which is src/test/java; and so on. When executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the needed configuration information, then executes the goal.
            Some of the configuration that can be specified in the POM are the project dependencies, the plugins or goals that can be executed, the build profiles, and so on. Other information such as the project version, description, developers, mailing lists and such can also be specified.
@@ -145,13 +145,13 @@ Now inside this method create new HttpClient variables in order to be able to se
 ```
 
 After pasting this code you will see that there are a lot of red errors in your code but don't worry you have to only hover over those red errors and import it.
-Now click on the run button on top right. If you want to use shortcut press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
+Now click on the run button on top right. If you want to use maven paste this command **mvn spring-boot:run** in terminal or want to use shortcut then press ctrl+F5 or shift+F10. It will start your server and your Run window will pop up.
 You will see that nothing is printing on the console. You are thinking why is that, I have written everything correct but nothing prints. Well, welcome to the world of magic :P I mean spring Boot.
 Let me explain here. In order to spring boot know that your CoronaVirusService is a service class, 
 you have to write this annotation **@Service** above the CoronaVirusService class and **@PostConstruct** above the fetchUrlData method. Well PostContruct annotation means that whenever this CoronaVirusService class is instantiated run this method too.
 
 
-Now, if you run your program again by clicking the run button or pressing shift+F10. You will see that now we are able to fetch all the data from the URL. As you can see all the data that received are in csv format, we have to convert it to string. In order to do that we need a **[csv parser](https://commons.apache.org/proper/commons-csv/index.html)** that parses csv files into string. Add this dependency into your POM.xml file inside dependencies section and save it.
+Now, if you run your program again. You will see that now we are able to fetch all the data from the URL. As you can see all the data that received are in csv format, we have to convert it to string. In order to do that we need a **[csv parser](https://commons.apache.org/proper/commons-csv/index.html)** that parses csv files into string. Add this dependency into your POM.xml file inside dependencies section and save it.
 ```
 <dependency>
     <groupId>org.apache.commons</groupId>
@@ -382,7 +382,7 @@ As you can see we have passed the same totalReportedCases and totalNewCases attr
 
 if your more curious about Thymeleaf syntax you can find more information [here](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf)
 
-#### 7: Congratulations you are now a spring boot Rockstar developer!
+#### 7: Congratulations you have now the basic understanding of spring boot!
 
 ### Nice to have features
 - Display totalRecoveredCases
@@ -391,7 +391,5 @@ if your more curious about Thymeleaf syntax you can find more information [here]
 
 ### Useful Resources
 [Spring Boor guides](https://spring.io/guides)
-
-[]()
 
 
