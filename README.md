@@ -323,6 +323,7 @@ public class HomeController {
 ```
 
 ##### 6: Open your index.html
+
 Now its front-end time!
 Copy and paste this code:
 
@@ -385,6 +386,7 @@ if your more curious about Thymeleaf syntax you can find more information [here]
 #### 7: Congratulations you have now the basic understanding of spring boot!
 
 ### Nice to have features
+
 - Display totalRecoveredCases
 
 - Display totalDeathCases
